@@ -61,7 +61,12 @@ function App() {
     }
   };
 
-  useEffect(() => loadInitialProps(), []);
+  useEffect(() => {
+    async function fetchData() {
+      await loadInitialProps();
+    }
+    fetchData();
+  }, []);
 
   if (appCtx.loading) {
     return <span>App is loading...</span>;
@@ -69,9 +74,13 @@ function App() {
   return (
     <AppProvider value={{ ...appCtx, dispatchCtxEvent }}>
       <Layout>
-        <AddCategory />
         <Todos />
-        <AddTodo />
+        <div className="panel-wrapper">
+          <div className="panel">
+            <AddCategory />
+            <AddTodo />
+          </div>
+        </div>
       </Layout>
     </AppProvider>
   );

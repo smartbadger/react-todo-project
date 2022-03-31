@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAppCtx } from "../context";
 
 const AddTodo = () => {
@@ -17,10 +17,11 @@ const AddTodo = () => {
     setTodo({ ...todo, ...val });
   };
   return (
-    <>
+    <div className="column">
       <input
         type="text"
         value={todo.title}
+        placeholder="Todo Text"
         onChange={({ target }) => handleChange({ title: target.value })}
       />
       <select
@@ -28,7 +29,7 @@ const AddTodo = () => {
         onChange={({ target }) => handleChange({ category: target.value })}
       >
         <option key={`unset-add-option`} value={""}>
-          Unset
+          Todo Category
         </option>
         {categories.map((el) => (
           <option key={`${el}-add-option`} value={el}>
@@ -36,8 +37,10 @@ const AddTodo = () => {
           </option>
         ))}
       </select>
-      <button onClick={handleAdd}>Add Todo +</button>
-    </>
+      <button className="add" onClick={handleAdd}>
+        Add Todo +
+      </button>
+    </div>
   );
 };
 export default AddTodo;

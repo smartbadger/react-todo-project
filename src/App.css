@@ -36,3 +36,132 @@
     transform: rotate(360deg);
   }
 }
+
+.page-wrapper {
+  max-width: 1900px;
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+  line-height: 1;
+  font-size: 1.25rem;
+  display: inline-block;
+  margin: 0;
+}
+
+header {
+  position: relative;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
+  display: flex;
+  justify-content: center;
+}
+
+.user-icn {
+  position: absolute;
+  left: 5%;
+}
+
+.user-icn > span {
+  font-size: 0.75rem;
+}
+
+button {
+  border: 0;
+  border-radius: 2px;
+  display: inline-block;
+  line-height: 2;
+  outline: 0;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  text-align: center;
+  opacity: 0.95;
+  text-decoration: none;
+  transition: 0.2s ease-out;
+  font-weight: 400;
+}
+
+button.del {
+  background-color: #d40000;
+  color: white;
+}
+
+button.done {
+  background-color: #009d05;
+  color: white;
+}
+button.done:disabled {
+  background-color: gray;
+}
+
+button.add {
+  background-color: #00bcd4;
+  color: white;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 0.5rem;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 0.5rem;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr auto;
+}
+
+.column {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0.5rem;
+}
+
+.categories {
+  margin-top: 1rem;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.cat-title {
+  text-align: center;
+}
+
+.complete {
+  opacity: 0.25;
+}
+
+.panel-wrapper {
+  position: fixed;
+  bottom: 0;
+  height: 15vh;
+  background: white;
+  box-shadow: 0px -2px 5px rgb(0 0 0 / 50%);
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+.panel {
+  padding: 0.5rem 5%;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+  width: 80%;
+  margin: auto;
+}

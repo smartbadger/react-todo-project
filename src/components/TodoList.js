@@ -4,7 +4,7 @@ const TodoList = ({ items = [], category, bg }) => {
   const list = items.map((el) => <ListItem {...el} key={el.id} />);
   return (
     <div style={{ backgroundColor: bg }}>
-      <span>{category}</span>
+      <h3 className="cat-title">{category}</h3>
       <ul>{list}</ul>
     </div>
   );
@@ -26,7 +26,7 @@ const ListItem = ({ title, id, completed, category = "" }) => {
   };
 
   return (
-    <li>
+    <li className={todo.completed ? "complete" : ""}>
       {edit ? (
         <>
           <input
@@ -47,21 +47,28 @@ const ListItem = ({ title, id, completed, category = "" }) => {
               </option>
             ))}
           </select>
-          <button onClick={handleEdit}>edit Todo +</button>
+          <button className="add" onClick={handleEdit}>
+            Update
+          </button>
           <button onClick={() => setEdit(false)}>cancel</button>
         </>
       ) : (
         <>
           <span>{todo.title}</span>
-          <span onClick={() => setEdit(!edit)}>edit</span>
-          <span onClick={handleDelete}>delete</span>
-          <span
-            onClick={() =>
-              dispatchCtxEvent("UPDATE_TODO", { ...todo, completed: true })
-            }
-          >
-            done
-          </span>
+          <div className="column">
+            <button
+              disabled={todo.completed}
+              className="done"
+              onClick={() => {
+                dispatchCtxEvent("UPDATE_TODO", { ...todo, completed: true });
+                setTodo({ ...todo, completed: true });
+              }}
+            >
+              Done
+            </button>
+            <button onClick={() => setEdit(!edit)}>Edit</button>
+            <button onClick={handleDelete}>Delete</button>
+          </div>
         </>
       )}
     </li>

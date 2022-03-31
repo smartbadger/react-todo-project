@@ -50,7 +50,7 @@ const Todos = () => {
   }, [todos]);
 
   return (
-    <div>
+    <div className="categories">
       <TodoList
         bg={colors[0]}
         items={filteredTodos.misc || []}
@@ -59,7 +59,7 @@ const Todos = () => {
       {categories.map((el, i) => (
         <TodoList
           key={`${el}-todo-list`}
-          bg={colors[i]}
+          bg={colors[i + 1]}
           items={filteredTodos[el] || []}
           category={el}
         />

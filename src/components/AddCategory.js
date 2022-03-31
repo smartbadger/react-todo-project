@@ -11,14 +11,17 @@ const AddCategory = () => {
     }
   };
   return (
-    <>
+    <div className="column">
       <input
         type="text"
         value={cat}
+        placeholder="Category Name"
         onChange={({ target }) => setCat(target.value)}
       />
-      <button onClick={handleAdd}>Add Category +</button>
-    </>
+      <button className="add" onClick={handleAdd}>
+        Add Category +
+      </button>
+    </div>
   );
 };
 export default AddCategory;
